@@ -1,25 +1,29 @@
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Hero from './sections/Hero'
-import Problem from './sections/Problem'
-import AIAgents from './sections/AIAgents'
-import Features from './sections/Features'
-import Pricing from './sections/Pricing'
-import Stats from './sections/Stats'
-import CTA from './sections/CTA'
+import { lazy, Suspense } from 'react'
+import LoadingScreen from './components/LoadingScreen'
+import Header3D from './components/Header3D'
+import ScrollSections from './components/ScrollSections'
+
+const Scene3D = lazy(() => import('./components/Scene3D'))
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-navy">
-      <Navbar />
-      <Hero />
-      <Problem />
-      <Features />
-      <AIAgents />
-      <Stats />
-      <Pricing />
-      <CTA />
-      <Footer />
-    </div>
+    <>
+      <main className="relative">
+        <LoadingScreen />
+        <Header3D />
+        <div className="scene-fixed">
+          <Suspense fallback={null}>
+            <Scene3D />
+          </Suspense>
+        </div>
+        <div className="section-stack">
+          <ScrollSections />
+        </div>
+      </main>
+      <footer className="relative z-10 py-12 px-[8vw] text-xs text-white/30 flex justify-between border-t border-white/5">
+        <span>© 2026 Realty Optix. All rights reserved.</span>
+        <span>iOS · Android · 8 Languages</span>
+      </footer>
+    </>
   )
 }
