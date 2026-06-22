@@ -1,5 +1,3 @@
-import { Home, Brain, TrendingUp, BarChart3, Zap, Globe, Video, Users } from 'lucide-react'
-
 function StatBlock({ label, value, unit }) {
   return (
     <div className="flex flex-col items-end text-right">
@@ -17,7 +15,7 @@ export default function ScrollSections() {
     <>
       {/* 1. HERO */}
       <section id="hero" data-section="hero" className="scroll-section relative">
-        <div className="max-w-[640px] md:max-w-[52%] text-center lg:text-left mx-auto lg:mx-0">
+        <div className="max-w-[640px] md:max-w-[48%] text-center lg:text-left mx-auto lg:mx-0">
           <p className="eyebrow-ro mb-6" data-hero-text>AI-Powered Real Estate Intelligence</p>
           <h1 className="headline-ro" data-hero-text>
             <span className="text-white">Realty</span>{' '}
@@ -31,16 +29,32 @@ export default function ScrollSections() {
             <a href="#pricing" className="cta-ro">Start Free Trial →</a>
             <a href="#features" className="cta-ro-outline">Watch Demo</a>
           </div>
+          <div className="flex items-center gap-8 mt-12" data-hero-text>
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-emerald">8</span>
+              <span className="text-[10px] uppercase tracking-wider text-white/40">AI Agents</span>
+            </div>
+            <div className="w-px h-8 bg-white/10" />
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-amber">8</span>
+              <span className="text-[10px] uppercase tracking-wider text-white/40">Languages</span>
+            </div>
+            <div className="w-px h-8 bg-white/10" />
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-white">iOS & Android</span>
+              <span className="text-[10px] uppercase tracking-wider text-white/40">Platforms</span>
+            </div>
+          </div>
         </div>
         <div className="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-white/40 text-xs tracking-wider">
           <span>Scroll to explore</span>
-          <span className="block w-px h-8 bg-white/20" />
+          <div className="scroll-cue" />
         </div>
       </section>
 
       {/* 2. AI AGENTS */}
       <section id="agents" data-section="agents" className="scroll-section relative">
-        <div className="max-w-[460px] md:max-w-[45%] lg:mt-[6vh]">
+        <div className="max-w-[460px] md:max-w-[42%] lg:mt-[4vh]">
           <p className="eyebrow-ro mb-4">Powered by GPT-4o</p>
           <h2 className="headline-md-ro">
             8 AI<br />
@@ -52,8 +66,8 @@ export default function ScrollSections() {
             every property.
           </p>
           <div className="flex flex-wrap gap-2 mt-6">
-            {['Valuation', 'Market', 'Rent', 'Investment', 'Risk'].map(tag => (
-              <span key={tag} className="px-3 py-1 text-xs font-medium rounded-full bg-emerald/10 text-emerald border border-emerald/20">
+            {['ValuaAgent', 'MarketIQ', 'RentIQ', 'InvestIQ', 'MortgageIQ', 'RiskIQ', 'DocIQ', 'PortIQ'].map(tag => (
+              <span key={tag} className="px-3 py-1.5 text-xs font-medium rounded-full bg-emerald/10 text-emerald border border-emerald/20">
                 {tag}
               </span>
             ))}
@@ -63,23 +77,37 @@ export default function ScrollSections() {
 
       {/* 3. FEATURES + STATS */}
       <section id="features" data-section="features" className="scroll-section relative">
-        <div className="lg:absolute lg:bottom-[18vh] lg:left-[10vw] max-w-[420px]">
+        <div className="lg:absolute lg:bottom-[16vh] lg:left-[8vw] max-w-[420px]">
           <p className="eyebrow-ro mb-3">Key Features</p>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-white">
             Everything you need<br />
             <span className="text-gradient-ro">in one app.</span>
           </h2>
+          <div className="mt-6 grid grid-cols-2 gap-3">
+            {[
+              { icon: '🏠', label: 'Property Search' },
+              { icon: '📊', label: 'AI Reports' },
+              { icon: '🎬', label: 'Video Tours' },
+              { icon: '📱', label: 'Property Reels' },
+            ].map(f => (
+              <div key={f.label} className="flex items-center gap-2 text-sm text-white/70">
+                <span className="text-lg">{f.icon}</span>
+                <span>{f.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mt-6 lg:mt-0 lg:absolute lg:top-[22vh] lg:right-[10vw] flex flex-row lg:flex-col gap-5 lg:gap-7 items-start lg:items-end">
+        <div className="mt-6 lg:mt-0 lg:absolute lg:top-[20vh] lg:right-[8vw] flex flex-row lg:flex-col gap-5 lg:gap-7 items-start lg:items-end">
           <StatBlock label="AI Reports" value="∞" />
           <StatBlock label="Languages" value="8" />
           <StatBlock label="Video Tours" value="AI" unit="gen" />
+          <StatBlock label="Calculators" value="3" unit="+" />
         </div>
       </section>
 
       {/* 4. MARKET STATS */}
       <section id="market" data-section="stats" className="scroll-section relative">
-        <div className="max-w-[480px] md:max-w-[40%]">
+        <div className="max-w-[480px] md:max-w-[42%]">
           <p className="eyebrow-ro mb-4">Market Opportunity</p>
           <h2 className="headline-md-ro">
             <span className="text-gradient-ro">$1.2T</span><br />
@@ -95,15 +123,20 @@ export default function ScrollSections() {
               <div className="text-2xl font-bold text-emerald">$48B</div>
               <div className="text-xs text-white/40 mt-1">TAM</div>
             </div>
+            <div className="w-px h-10 bg-white/10" />
             <div>
               <div className="text-2xl font-bold text-amber">$8.4B</div>
               <div className="text-xs text-white/40 mt-1">SAM</div>
             </div>
+            <div className="w-px h-10 bg-white/10" />
             <div>
               <div className="text-2xl font-bold text-white">$420M</div>
               <div className="text-xs text-white/40 mt-1">SOM</div>
             </div>
           </div>
+          <p className="mt-6 text-xs text-white/30">
+            Target: 1.5M+ active US real estate agents · Go-to-market: Florida first, then nationwide
+          </p>
         </div>
       </section>
 
@@ -120,20 +153,34 @@ export default function ScrollSections() {
             No credit card required to start.
           </p>
           <div className="mt-8 space-y-3">
-            <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10">
-              <span className="text-white font-medium">PRO Monthly</span>
-              <span className="text-emerald font-bold">$4.99<span className="text-white/40 text-sm">/mo</span></span>
-            </div>
-            <div className="flex items-center justify-between p-3 rounded-xl bg-emerald/10 border border-emerald/20">
-              <div className="flex items-center gap-2">
-                <span className="text-white font-medium">PRO Annual</span>
-                <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-amber text-navy">SAVE 33%</span>
+            <div className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10">
+              <div>
+                <span className="text-white font-medium">Free Trial</span>
+                <span className="block text-[11px] text-white/40 mt-0.5">3 months · All PRO features</span>
               </div>
-              <span className="text-emerald font-bold">$39.99<span className="text-white/40 text-sm">/yr</span></span>
+              <span className="text-emerald font-bold text-lg">$0</span>
             </div>
-            <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10">
-              <span className="text-white font-medium">PRO+</span>
-              <span className="text-amber font-bold">$119<span className="text-white/40 text-sm">/yr</span></span>
+            <div className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10">
+              <div>
+                <span className="text-white font-medium">PRO Monthly</span>
+                <span className="block text-[11px] text-white/40 mt-0.5">10 listings · 10 AI reports/mo</span>
+              </div>
+              <span className="text-emerald font-bold text-lg">$4.99<span className="text-white/40 text-sm">/mo</span></span>
+            </div>
+            <div className="flex items-center justify-between p-4 rounded-xl bg-emerald/10 border border-emerald/25 relative overflow-hidden">
+              <div className="absolute top-0 right-0 px-2 py-0.5 text-[9px] font-bold bg-amber text-navy rounded-bl-lg">SAVE 33%</div>
+              <div>
+                <span className="text-white font-medium">PRO Annual</span>
+                <span className="block text-[11px] text-white/40 mt-0.5">25 listings · 25 AI reports/mo</span>
+              </div>
+              <span className="text-emerald font-bold text-lg">$39.99<span className="text-white/40 text-sm">/yr</span></span>
+            </div>
+            <div className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10">
+              <div>
+                <span className="text-white font-medium">PRO+</span>
+                <span className="block text-[11px] text-white/40 mt-0.5">50 listings · Unlimited reports</span>
+              </div>
+              <span className="text-amber font-bold text-lg">$119<span className="text-white/40 text-sm">/yr</span></span>
             </div>
           </div>
         </div>
@@ -152,8 +199,12 @@ export default function ScrollSections() {
                 <span className="absolute inset-0 bg-emerald rounded-full -z-0 translate-y-[6%]" />
               </span>
             </h2>
-            <div className="mt-8 flex justify-center lg:justify-end">
-              <a href="#" className="cta-ro">Start Free Trial →</a>
+            <p className="mt-6 text-white/50 text-sm max-w-sm ml-auto">
+              Join thousands of agents using AI to close more deals, faster.
+            </p>
+            <div className="mt-8 flex flex-col items-center lg:items-end gap-3">
+              <a href="#" className="cta-ro text-lg !px-10 !py-4">Start Free Trial →</a>
+              <span className="text-[11px] text-white/30">No credit card required · 3 months free</span>
             </div>
           </div>
         </div>

@@ -232,6 +232,31 @@ html, body {
   animation: loading-bar 1.6s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
 }
 
+/* ═══ Scroll Cue ═══ */
+.scroll-cue {
+  width: 20px;
+  height: 32px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  position: relative;
+}
+.scroll-cue::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 6px;
+  background: #2DD4A0;
+  border-radius: 2px;
+  animation: scroll-dot 2s ease-in-out infinite;
+}
+@keyframes scroll-dot {
+  0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.3; transform: translateX(-50%) translateY(10px); }
+}
+
 @keyframes loading-bar {
   0% { left: -35%; }
   100% { left: 100%; }
