@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Sparkles } from 'lucide-react'
+import { Menu, X, Home } from 'lucide-react'
 
 const links = [
   { label: 'Features', href: '#features' },
@@ -27,20 +27,21 @@ export default function Navbar() {
       } ${show ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-electric to-purple flex items-center justify-center group-hover:scale-110 transition-transform">
-            <Sparkles size={18} className="text-white" />
+        <a href="#" className="flex items-center gap-2.5 group">
+          <div className="w-9 h-9 rounded-xl bg-emerald flex items-center justify-center group-hover:scale-110 transition-transform">
+            <Home size={18} className="text-white" />
           </div>
-          <span className="text-xl font-bold text-white tracking-tight">
-            Realty <span className="gradient-text">Optix</span>
+          <span className="text-xl font-bold tracking-tight">
+            <span className="text-white">Realty</span>{' '}
+            <span className="gradient-text-amber">Optix</span>
           </span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
           {links.map(l => (
-            <a key={l.href} href={l.href} className="text-sm text-gray-400 hover:text-white transition-colors relative group">
+            <a key={l.href} href={l.href} className="text-sm text-gray-400 hover:text-emerald transition-colors relative group">
               {l.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-electric group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-emerald group-hover:w-full transition-all duration-300" />
             </a>
           ))}
         </div>
@@ -49,7 +50,7 @@ export default function Navbar() {
           <a href="#pricing" className="text-sm text-gray-400 hover:text-white transition-colors px-4 py-2">
             Sign In
           </a>
-          <a href="#pricing" className="text-sm font-medium text-white px-5 py-2.5 rounded-full bg-gradient-to-r from-electric to-purple hover:opacity-90 transition-opacity">
+          <a href="#pricing" className="text-sm font-medium text-white px-5 py-2.5 rounded-full bg-emerald hover:bg-emerald-glow transition-colors">
             Start Free Trial
           </a>
         </div>
@@ -59,7 +60,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <div
         className={`md:hidden glass-strong border-t border-white/5 overflow-hidden transition-all duration-300 ${
           mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
@@ -71,7 +71,7 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href="#pricing" className="mt-2 text-center font-medium text-white px-5 py-3 rounded-full bg-gradient-to-r from-electric to-purple" onClick={() => setMobileOpen(false)}>
+          <a href="#pricing" className="mt-2 text-center font-medium text-white px-5 py-3 rounded-full bg-emerald" onClick={() => setMobileOpen(false)}>
             Start Free Trial
           </a>
         </div>

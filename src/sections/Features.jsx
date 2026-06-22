@@ -24,10 +24,10 @@ function FeatureCard({ feature, index }) {
       style={{ transitionDelay: `${index * 60}ms` }}
     >
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-electric/10 transition-colors">
-          <feature.icon size={20} className="text-electric" />
+        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-emerald/10 transition-colors">
+          <feature.icon size={20} className="text-emerald" />
         </div>
-        <span className="text-[10px] font-mono text-electric/60 uppercase tracking-wider px-2 py-0.5 rounded-full border border-electric/20">
+        <span className="text-[10px] font-mono text-emerald/60 uppercase tracking-wider px-2 py-0.5 rounded-full border border-emerald/20">
           {feature.tag}
         </span>
       </div>
@@ -42,11 +42,11 @@ export default function Features() {
 
   return (
     <section id="features" className="relative py-32">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-electric/3 rounded-full blur-[150px]" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald/3 rounded-full blur-[150px]" />
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div ref={titleRef} className={`text-center mb-20 transition-all duration-1000 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="text-xs font-mono text-electric uppercase tracking-[0.2em] mb-4 block">Product Experience</span>
+          <span className="text-xs font-mono text-amber uppercase tracking-[0.2em] mb-4 block">Product Experience</span>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Everything an agent<br />
             <span className="gradient-text">needs in one app.</span>
@@ -62,7 +62,6 @@ export default function Features() {
           ))}
         </div>
 
-        {/* App showcase mockup */}
         <AppShowcase />
       </div>
     </section>
@@ -78,9 +77,9 @@ function AppShowcase() {
           <div className="absolute inset-0 bg-gradient-to-br from-navy-light to-navy-mid flex items-center justify-center">
             <div className="grid grid-cols-3 gap-4 p-8 w-full">
               {[
-                { label: 'Explore', emoji: '🗺️', color: 'from-blue-500/20 to-blue-600/10' },
-                { label: 'Dashboard', emoji: '📊', color: 'from-purple-500/20 to-purple-600/10' },
-                { label: 'AI Report', emoji: '🤖', color: 'from-emerald-500/20 to-emerald-600/10' },
+                { label: 'Explore', emoji: '🗺️', color: 'from-emerald/20 to-emerald/5' },
+                { label: 'Dashboard', emoji: '📊', color: 'from-amber/20 to-amber/5' },
+                { label: 'AI Report', emoji: '🤖', color: 'from-emerald/20 to-emerald-deep/10' },
               ].map((screen) => (
                 <div key={screen.label} className={`aspect-[9/16] rounded-xl bg-gradient-to-br ${screen.color} border border-white/10 flex flex-col items-center justify-center gap-3`}>
                   <span className="text-4xl">{screen.emoji}</span>
@@ -90,7 +89,7 @@ function AppShowcase() {
             </div>
           </div>
         </div>
-        <div className="absolute -inset-4 bg-gradient-to-r from-electric/10 via-purple/10 to-emerald/10 rounded-3xl blur-xl -z-10" />
+        <div className="absolute -inset-4 bg-gradient-to-r from-emerald/10 via-amber/10 to-emerald/10 rounded-3xl blur-xl -z-10" />
       </div>
     </div>
   )

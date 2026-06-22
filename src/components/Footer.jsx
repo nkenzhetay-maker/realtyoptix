@@ -1,4 +1,4 @@
-import { Sparkles } from 'lucide-react'
+import { Home } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -7,10 +7,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-electric to-purple flex items-center justify-center">
-                <Sparkles size={16} className="text-white" />
+              <div className="w-8 h-8 rounded-lg bg-emerald flex items-center justify-center">
+                <Home size={16} className="text-white" />
               </div>
-              <span className="text-lg font-bold text-white">Realty Optix</span>
+              <span className="text-lg font-bold text-white">Realty <span className="gradient-text-amber">Optix</span></span>
             </div>
             <p className="text-sm text-gray-500 leading-relaxed">
               AI-Powered Real Estate Intelligence Platform. Transform property analysis with 8 AI agents.

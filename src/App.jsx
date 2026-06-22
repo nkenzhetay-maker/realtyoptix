@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Hero from './sections/Hero'
+import Problem from './sections/Problem'
 import AIAgents from './sections/AIAgents'
 import Features from './sections/Features'
 import Pricing from './sections/Pricing'
@@ -9,9 +10,10 @@ import CTA from './sections/CTA'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#050510]">
+    <div className="min-h-screen bg-navy">
       <Navbar />
       <Hero />
+      <Problem />
       <Features />
       <AIAgents />
       <Stats />

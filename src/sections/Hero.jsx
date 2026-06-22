@@ -20,8 +20,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#050510]">
-      {/* 3D Background - right side */}
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-navy">
       <div className="absolute top-0 right-0 w-full h-full z-0">
         <Canvas
           camera={{ position: [0, 0, 8], fov: 50 }}
@@ -44,15 +43,13 @@ export default function Hero() {
         </Canvas>
       </div>
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-[#050510] via-[#050510]/70 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050510] to-transparent z-[2] pointer-events-none" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-navy via-navy/70 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy to-transparent z-[2] pointer-events-none" />
 
-      {/* Content */}
       <div className="relative z-[5] max-w-7xl mx-auto px-6 pt-32 pb-20 w-full pointer-events-none">
         <div className="max-w-3xl pointer-events-auto">
           <div
-            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-8 text-xs text-electric-glow transition-all duration-1000 delay-300 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-8 text-xs text-emerald-glow transition-all duration-1000 delay-300 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             <span className="w-2 h-2 rounded-full bg-emerald animate-pulse" />
             Now in Beta — 8 AI Agents Active
@@ -63,7 +60,7 @@ export default function Hero() {
           >
             <span className="text-white">Realty</span>
             <br />
-            <span className="gradient-text">Optix</span>
+            <span className="gradient-text-amber">Optix</span>
           </h1>
 
           <p
@@ -78,7 +75,7 @@ export default function Hero() {
           >
             <a
               href="#pricing"
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-electric to-purple text-white font-medium text-sm hover:opacity-90 transition-all glow-blue"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-emerald text-white font-medium text-sm hover:bg-emerald-glow transition-all glow-emerald"
             >
               Start Free Trial
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -96,10 +93,10 @@ export default function Hero() {
             className={`flex items-center gap-8 mt-14 text-xs text-gray-500 transition-all duration-1000 delay-[1300ms] ${show ? 'opacity-100' : 'opacity-0'}`}
           >
             <div className="flex items-center gap-2">
-              <span className="text-electric font-mono text-sm">8</span> AI Agents
+              <span className="text-emerald font-mono text-sm">8</span> AI Agents
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-purple font-mono text-sm">8</span> Languages
+              <span className="text-amber font-mono text-sm">8</span> Languages
             </div>
             <div className="flex items-center gap-2">
               <span className="text-emerald font-mono text-sm">iOS</span> & Android
@@ -108,12 +105,11 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div
         className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-10 transition-opacity duration-1000 delay-[2000ms] ${show ? 'opacity-100' : 'opacity-0'}`}
       >
         <div className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-electric animate-bounce" />
+          <div className="w-1.5 h-1.5 rounded-full bg-emerald animate-bounce" />
         </div>
       </div>
     </section>

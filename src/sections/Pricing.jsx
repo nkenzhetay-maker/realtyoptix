@@ -5,28 +5,28 @@ const plans = [
   {
     name: 'Free Trial', price: '$0', period: '3 months',
     desc: 'Full PRO access for 3 months. No credit card required.',
-    icon: Zap, color: '#10b981',
+    icon: Zap, color: '#2DD4A0',
     features: ['All PRO features unlocked', '10 AI reports / month', '10 listings', '10 video tours / month', '8 AI agents access', 'Property Reels'],
     cta: 'Start Free Trial', popular: false,
   },
   {
     name: 'PRO', price: '$4.99', period: '/month',
     desc: 'Essential tools for active agents.',
-    icon: Star, color: '#3b82f6',
+    icon: Star, color: '#D4A843',
     features: ['10 AI reports / month', '10 active listings', '10 video tours / month', 'All 8 AI agents', 'CRM & lead management', 'Multi-language support'],
     cta: 'Get PRO', popular: false,
   },
   {
     name: 'PRO Annual', price: '$39.99', period: '/year',
     desc: 'Save 33% — best value for growing teams.',
-    icon: Star, color: '#8b5cf6',
+    icon: Star, color: '#2DD4A0',
     features: ['25 AI reports / month', '25 active listings', '25 video tours / month', 'All 8 AI agents', 'Priority support', 'Advanced analytics'],
     cta: 'Get PRO Annual', popular: true, badge: 'SAVE 33%',
   },
   {
     name: 'PRO+', price: '$119', period: '/year',
     desc: 'Unlimited power for top producers.',
-    icon: Crown, color: '#f59e0b',
+    icon: Crown, color: '#D4A843',
     features: ['Unlimited AI reports', '50 active listings', '50 video tours / month', 'All 8 AI agents', 'Dedicated support', 'White-label reports'],
     cta: 'Get PRO+', popular: false,
   },
@@ -37,11 +37,11 @@ function PlanCard({ plan, index }) {
   return (
     <div
       ref={ref}
-      className={`relative rounded-2xl p-6 ${plan.popular ? 'glass-strong border-purple/30' : 'glass'} transition-all duration-700 hover:-translate-y-2 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className={`relative rounded-2xl p-6 ${plan.popular ? 'glass-strong border-emerald/30' : 'glass'} transition-all duration-700 hover:-translate-y-2 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       {plan.badge && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-purple to-electric text-[10px] font-bold text-white tracking-wider">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-emerald text-[10px] font-bold text-white tracking-wider">
           {plan.badge}
         </div>
       )}
@@ -74,7 +74,7 @@ function PlanCard({ plan, index }) {
       <button
         className={`w-full py-3 rounded-xl text-sm font-medium transition-all ${
           plan.popular
-            ? 'bg-gradient-to-r from-purple to-electric text-white glow-purple hover:opacity-90'
+            ? 'bg-emerald text-white glow-emerald hover:bg-emerald-glow'
             : 'glass text-gray-300 hover:text-white'
         }`}
       >
@@ -89,11 +89,11 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="relative py-32">
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple/5 rounded-full blur-[120px]" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald/5 rounded-full blur-[120px]" />
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div ref={titleRef} className={`text-center mb-20 transition-all duration-1000 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="text-xs font-mono text-purple uppercase tracking-[0.2em] mb-4 block">Pricing</span>
+          <span className="text-xs font-mono text-amber uppercase tracking-[0.2em] mb-4 block">Pricing</span>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Start free.<br />
             <span className="gradient-text">Scale as you grow.</span>

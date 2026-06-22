@@ -35,10 +35,10 @@ function AnimatedCounter({ end, suffix = '', prefix = '', duration = 2000 }) {
 }
 
 const stats = [
-  { value: 1.2, suffix: 'T', prefix: '$', label: 'Market Opportunity', color: '#3b82f6' },
-  { value: 1500000, suffix: '+', prefix: '', label: 'Active US Agents', color: '#8b5cf6' },
-  { value: 8, suffix: '', prefix: '', label: 'AI Agents', color: '#10b981' },
-  { value: 8, suffix: '', prefix: '', label: 'Languages', color: '#f59e0b' },
+  { value: 1.2, suffix: 'T', prefix: '$', label: 'Market Opportunity', color: '#2DD4A0' },
+  { value: 1500000, suffix: '+', prefix: '', label: 'Active US Agents', color: '#D4A843' },
+  { value: 8, suffix: '', prefix: '', label: 'AI Agents', color: '#2DD4A0' },
+  { value: 8, suffix: '', prefix: '', label: 'Languages', color: '#D4A843' },
 ]
 
 export default function Stats() {
@@ -52,7 +52,7 @@ export default function Stats() {
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div ref={titleRef} className={`text-center mb-20 transition-all duration-1000 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="text-xs font-mono text-emerald uppercase tracking-[0.2em] mb-4 block">Market Opportunity</span>
+          <span className="text-xs font-mono text-amber uppercase tracking-[0.2em] mb-4 block">Market Opportunity</span>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             The numbers speak<br />
             <span className="gradient-text">for themselves.</span>
@@ -78,12 +78,11 @@ export default function Stats() {
           ))}
         </div>
 
-        {/* TAM SAM SOM */}
         <div ref={tamRef} className={`mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 transition-all duration-1000 delay-300 ${tamInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {[
-            { label: 'TAM', value: '$1.2T', desc: 'Total US residential real estate market', color: '#3b82f6' },
-            { label: 'SAM', value: '$3.6B', desc: 'Real estate SaaS tools market', color: '#8b5cf6' },
-            { label: 'SOM', value: '$180M', desc: 'AI-powered agent tools (Year 3)', color: '#10b981' },
+            { label: 'TAM', value: '$1.2T', desc: 'Total US residential real estate market', color: '#2DD4A0' },
+            { label: 'SAM', value: '$3.6B', desc: 'Real estate SaaS tools market', color: '#D4A843' },
+            { label: 'SOM', value: '$180M', desc: 'AI-powered agent tools (Year 3)', color: '#5EEAD4' },
           ].map((item) => (
             <div key={item.label} className="p-6 rounded-2xl glass text-center">
               <span className="text-xs font-mono tracking-wider" style={{ color: item.color }}>{item.label}</span>

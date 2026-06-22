@@ -8,10 +8,10 @@ export default function ParticleField({ count = 2000 }) {
   const [positions, colors] = useMemo(() => {
     const pos = new Float32Array(count * 3)
     const col = new Float32Array(count * 3)
-    const blue = new THREE.Color('#3b82f6')
-    const purple = new THREE.Color('#8b5cf6')
-    const emerald = new THREE.Color('#10b981')
-    const palette = [blue, purple, emerald]
+    const emerald = new THREE.Color('#2DD4A0')
+    const amber = new THREE.Color('#D4A843')
+    const teal = new THREE.Color('#5EEAD4')
+    const palette = [emerald, amber, teal]
 
     for (let i = 0; i < count; i++) {
       pos[i * 3] = (Math.random() - 0.5) * 40
