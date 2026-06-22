@@ -1,6 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
-import { useThree } from '@react-three/fiber'
+import { useGLTF, useTexture } from '@react-three/drei'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import * as THREE from 'three'
@@ -18,8 +17,18 @@ import {
 
 gsap.registerPlugin(ScrollTrigger)
 
+const SCREEN_IMAGES = [
+  '/screens/00_login.png',
+  '/screens/01_home_explore.png',
+  '/screens/03_dashboard.png',
+  '/screens/11_listing_detail.png',
+  '/screens/10_profile_full.png',
+  '/screens/07_ai_report_content.png',
+  '/screens/12_drone_view.png',
+]
+
 const GLASS_NAME_HINTS = [
-  'glass', 'screen', 'lens', 'camera_lens', 'display',
+  'glass', 'lens', 'camera_lens',
 ]
 
 function isGlassMaterial(matName, meshName) {
@@ -27,10 +36,31 @@ function isGlassMaterial(matName, meshName) {
   return GLASS_NAME_HINTS.some(h => n.includes(h))
 }
 
+function isScreenMaterial(matName) {
+  const n = (matName || '').toLowerCase()
+  return n === 'screen_bg'
+}
+
 export default function PhoneModel() {
   const groupRef = useRef(null)
+  const screenMatRef = useRef(null)
+  const currentSectionRef = useRef(0)
+  const texturesRef = useRef(null)
   const gltf = useGLTF('/models/iphone.glb')
   const scene = gltf.scene
+
+  const screenTextures = useTexture(SCREEN_IMAGES)
+
+  useMemo(() => {
+    screenTextures.forEach(tex => {
+      tex.flipY = true
+      tex.colorSpace = THREE.SRGBColorSpace
+      tex.minFilter = THREE.LinearFilter
+      tex.magFilter = THREE.LinearFilter
+      tex.needsUpdate = true
+    })
+    texturesRef.current = screenTextures
+  }, [screenTextures])
 
   const normalized = useMemo(() => {
     const cloned = scene.clone(true)
@@ -57,9 +87,29 @@ export default function PhoneModel() {
           clonedMats.set(mat, next)
         }
 
-        const glass = isGlassMaterial(mat.name, child.name)
-
-        if (glass) {
+        if (isScreenMaterial(mat.name)) {
+          const uv = child.geometry?.attributes?.uv
+          if (uv && !uv.__remapped) {
+            for (let i = 0; i < uv.count; i++) {
+              const oldU = (uv.getX(i) - 0.1849) / 0.3391
+              const oldV = (uv.getY(i) - 0.4389) / 0.1624
+              uv.setXY(i, 1 - oldV, oldU)
+            }
+            uv.needsUpdate = true
+            uv.__remapped = true
+          }
+          next.map = screenTextures[0]
+          next.emissiveMap = screenTextures[0]
+          next.emissive = new THREE.Color(0xffffff)
+          next.emissiveIntensity = 0.4
+          next.transparent = false
+          next.opacity = 1
+          next.depthWrite = true
+          next.side = THREE.FrontSide
+          if ('roughness' in next) next.roughness = 0.3
+          if ('metalness' in next) next.metalness = 0.0
+          screenMatRef.current = next
+        } else if (isGlassMaterial(mat.name, child.name)) {
           next.transparent = true
           next.opacity = 0.4
           next.depthWrite = false
@@ -68,11 +118,14 @@ export default function PhoneModel() {
           if ('roughness' in next) next.roughness = 0.05
           if ('metalness' in next) next.metalness = 0.1
         } else {
+          next.color = new THREE.Color(0x10B981)
           next.transparent = false
           next.opacity = 1
           next.depthWrite = true
           next.depthTest = true
           next.side = THREE.FrontSide
+          if ('roughness' in next) next.roughness = 0.35
+          if ('metalness' in next) next.metalness = 0.6
           if ('transmission' in next) next.transmission = 0
         }
         next.needsUpdate = true
@@ -87,11 +140,33 @@ export default function PhoneModel() {
     })
 
     return cloned
-  }, [scene])
+  }, [scene, screenTextures])
 
   useEffect(() => {
     markTexturesReady()
   }, [normalized])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const mat = screenMatRef.current
+      const textures = texturesRef.current
+      if (!mat || !textures) return
+      const scrollY = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      if (docHeight <= 0) return
+      const progress = scrollY / docHeight
+      const totalSections = textures.length
+      const idx = Math.min(Math.floor(progress * totalSections), totalSections - 1)
+      if (idx !== currentSectionRef.current) {
+        currentSectionRef.current = idx
+        mat.map = textures[idx]
+        mat.emissiveMap = textures[idx]
+        mat.needsUpdate = true
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useLayoutEffect(() => {
     const g = groupRef.current
@@ -146,12 +221,12 @@ export default function PhoneModel() {
 
       function buildScrollTimeline() {
         const tl = gsap.timeline({
-          defaults: { duration: 1, ease: 'none' },
+          defaults: { duration: 1, ease: 'power1.inOut' },
           scrollTrigger: {
             trigger: 'main',
             start: 'top top',
             end: 'bottom bottom',
-            scrub: 1.5,
+            scrub: 0.8,
             invalidateOnRefresh: true,
           },
         })
@@ -171,6 +246,24 @@ export default function PhoneModel() {
             x: next.scale * ss, y: next.scale * ss, z: next.scale * ss,
           }, at)
         }
+
+        document.querySelectorAll('.scroll-section').forEach((sec) => {
+          const inner = sec.querySelector('.section-content')
+          if (!inner) return
+          gsap.fromTo(inner,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1, y: 0, duration: 1, ease: 'power2.out',
+              scrollTrigger: {
+                trigger: sec,
+                start: 'top 80%',
+                end: 'top 30%',
+                scrub: false,
+                toggleActions: 'play none none reverse',
+              },
+            }
+          )
+        })
 
         ScrollTrigger.refresh()
       }

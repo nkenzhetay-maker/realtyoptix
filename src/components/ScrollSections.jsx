@@ -54,7 +54,7 @@ export default function ScrollSections() {
 
       {/* 2. AI AGENTS */}
       <section id="agents" data-section="agents" className="scroll-section relative">
-        <div className="max-w-[460px] md:max-w-[42%] lg:mt-[4vh]">
+        <div className="section-content max-w-[460px] md:max-w-[42%] lg:mt-[4vh]">
           <p className="eyebrow-ro mb-4">Powered by GPT-4o</p>
           <h2 className="headline-md-ro">
             8 AI<br />
@@ -77,7 +77,7 @@ export default function ScrollSections() {
 
       {/* 3. FEATURES + STATS */}
       <section id="features" data-section="features" className="scroll-section relative">
-        <div className="lg:absolute lg:bottom-[16vh] lg:left-[8vw] max-w-[420px]">
+        <div className="section-content max-w-[420px] md:max-w-[42%]">
           <p className="eyebrow-ro mb-3">Key Features</p>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-white">
             Everything you need<br />
@@ -96,18 +96,18 @@ export default function ScrollSections() {
               </div>
             ))}
           </div>
-        </div>
-        <div className="mt-6 lg:mt-0 lg:absolute lg:top-[20vh] lg:right-[8vw] flex flex-row lg:flex-col gap-5 lg:gap-7 items-start lg:items-end">
-          <StatBlock label="AI Reports" value="∞" />
-          <StatBlock label="Languages" value="8" />
-          <StatBlock label="Video Tours" value="AI" unit="gen" />
-          <StatBlock label="Calculators" value="3" unit="+" />
+          <div className="mt-8 flex flex-row gap-5 items-start">
+            <StatBlock label="AI Reports" value="∞" />
+            <StatBlock label="Languages" value="8" />
+            <StatBlock label="Video Tours" value="AI" unit="gen" />
+            <StatBlock label="Calculators" value="3" unit="+" />
+          </div>
         </div>
       </section>
 
       {/* 4. MARKET STATS */}
       <section id="market" data-section="stats" className="scroll-section relative">
-        <div className="max-w-[480px] md:max-w-[42%]">
+        <div className="section-content max-w-[480px] md:max-w-[42%]">
           <p className="eyebrow-ro mb-4">Market Opportunity</p>
           <h2 className="headline-md-ro">
             <span className="text-gradient-ro">$1.2T</span><br />
@@ -142,7 +142,7 @@ export default function ScrollSections() {
 
       {/* 5. PRICING */}
       <section id="pricing" data-section="pricing" className="scroll-section relative">
-        <div className="max-w-[440px] md:max-w-[40%]">
+        <div className="section-content max-w-[440px] md:max-w-[40%]">
           <p className="eyebrow-ro mb-4">Simple Pricing</p>
           <h2 className="headline-md-ro">
             Start<br />
@@ -186,10 +186,54 @@ export default function ScrollSections() {
         </div>
       </section>
 
-      {/* 6. FINAL CTA */}
+      {/* 6. INVESTORS */}
+      <section id="investors" data-section="investors" className="scroll-section relative">
+        <div className="section-content max-w-[520px] md:max-w-[44%]">
+          <p className="eyebrow-ro mb-4">For Investors</p>
+          <h2 className="headline-md-ro">
+            Investor<br />
+            <span className="text-gradient-ro">Pitch Deck.</span>
+          </h2>
+          <p className="mt-6 text-white/60 leading-relaxed">
+            14-slide deck covering our AI technology, $1.2T market opportunity,
+            revenue model, go-to-market strategy, and growth projections.
+          </p>
+          <div className="flex flex-col gap-3 mt-8">
+            <a
+              href="/RealtyOptix_Investor_Pitch.pptx"
+              download
+              className="cta-ro inline-flex items-center gap-3 w-fit"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Pitch Deck
+            </a>
+            <span className="text-[11px] text-white/30">PPTX · 14 slides · 22 MB</span>
+          </div>
+          <div className="grid grid-cols-2 gap-3 mt-6">
+            {[
+              { icon: '🎯', title: 'TAM $48B', desc: 'Total addressable market' },
+              { icon: '🤖', title: '8 AI Agents', desc: 'GPT-4o powered analysis' },
+              { icon: '📈', title: '3-Year Plan', desc: 'Aggressive growth strategy' },
+              { icon: '🌎', title: 'Florida First', desc: 'Then nationwide expansion' },
+            ].map(item => (
+              <div key={item.title} className="p-4 rounded-xl bg-white/5 border border-white/10">
+                <span className="text-xl">{item.icon}</span>
+                <div className="mt-2 text-sm font-medium text-white">{item.title}</div>
+                <div className="text-[11px] text-white/40 mt-0.5">{item.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FINAL CTA */}
       <section id="cta" data-section="cta" className="scroll-section relative">
-        <div className="w-full flex items-center justify-center lg:justify-end">
-          <div className="text-center lg:text-right max-w-[85%] lg:max-w-[min(520px,46vw)] w-full">
+        <div className="section-content w-full flex items-center justify-center lg:justify-start">
+          <div className="text-center lg:text-left max-w-[85%] lg:max-w-[min(520px,46vw)] w-full">
             <p className="eyebrow-ro mb-4">Get Started Today</p>
             <h2 className="final-title-ro">
               Your AI<br />
@@ -199,10 +243,10 @@ export default function ScrollSections() {
                 <span className="absolute inset-0 bg-emerald rounded-full -z-0 translate-y-[6%]" />
               </span>
             </h2>
-            <p className="mt-6 text-white/50 text-sm max-w-sm ml-auto">
+            <p className="mt-6 text-white/50 text-sm max-w-sm">
               Join thousands of agents using AI to close more deals, faster.
             </p>
-            <div className="mt-8 flex flex-col items-center lg:items-end gap-3">
+            <div className="mt-8 flex flex-col items-center lg:items-start gap-3">
               <a href="#" className="cta-ro text-lg !px-10 !py-4">Start Free Trial →</a>
               <span className="text-[11px] text-white/30">No credit card required · 3 months free</span>
             </div>

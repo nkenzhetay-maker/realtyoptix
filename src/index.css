@@ -262,6 +262,11 @@ html, body {
   100% { left: 100%; }
 }
 
+/* ═══ Section Content Animation ═══ */
+.section-content {
+  will-change: opacity, transform;
+}
+
 /* ═══ Glassmorphism ═══ */
 .glass {
   background: rgba(255, 255, 255, 0.04);
