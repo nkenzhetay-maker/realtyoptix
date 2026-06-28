@@ -402,6 +402,228 @@ html, body {
   100% { background-position: 0% 50%; }
 }
 
+/* ═══ Amber gradient text ═══ */
+.text-gradient-amber {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══ Amber CTA Button ═══ */
+.cta-ro-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: #0A1628;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  text-decoration: none;
+}
+.cta-ro-amber:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+/* ═══ iBuying Promo Section ═══ */
+.ibuying-section {
+  position: relative;
+  z-index: 10;
+  padding: 120px 8vw;
+  background: linear-gradient(180deg, #0A1628 0%, #0D1B30 50%, #0A1628 100%);
+  overflow: hidden;
+}
+
+.ibuying-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ibuying-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.ibuying-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #0A1628;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  margin-bottom: 24px;
+}
+
+.ibuying-title {
+  text-align: center;
+}
+
+.ibuying-subtitle {
+  max-width: 520px;
+  margin: 20px auto 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ibuying-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.ibuying-step {
+  position: relative;
+  padding: 32px 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.ibuying-visible .ibuying-step {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ibuying-step:hover {
+  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.06);
+}
+
+.ibuying-step-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.ibuying-step-num {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.2);
+  color: #F59E0B;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ibuying-step-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.ibuying-step-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ibuying-highlights {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 48px;
+  padding: 32px;
+  border-radius: 16px;
+  background: rgba(245, 158, 11, 0.06);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+.ibuying-highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ibuying-highlight-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #F59E0B;
+}
+
+.ibuying-highlight-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.ibuying-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ibuying-cta-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.ibuying-cta-note {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .ibuying-section {
+    padding: 80px 6vw;
+  }
+  .ibuying-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .ibuying-highlights {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 24px;
+  }
+  .ibuying-divider {
+    display: none;
+  }
+  .ibuying-highlight {
+    min-width: 40%;
+  }
+  .ibuying-subtitle {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ibuying-section {
+    padding: 60px 5vw;
+  }
+  .ibuying-steps {
+    grid-template-columns: 1fr;
+  }
+  .ibuying-step {
+    padding: 24px 20px;
+  }
+  .ibuying-highlight-value {
+    font-size: 22px;
+  }
+}
+
 /* ═══ App Gallery Section ═══ */
 .app-gallery-section {
   position: relative;

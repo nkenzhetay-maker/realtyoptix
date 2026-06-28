@@ -1,15 +1,15 @@
 import { useEffect, useRef } from 'react'
 
 const screens = [
-  { src: '/screens/00_login.png', label: 'Login' },
-  { src: '/screens/14_create_account.png', label: 'Create Account' },
-  { src: '/screens/15_user_type.png', label: 'User Type' },
-  { src: '/screens/01_home_explore.png', label: 'Home / Explore' },
+  { src: '/screens/s01_privacy.png', label: 'Privacy & Consent' },
+  { src: '/screens/00_login.png', label: 'Sign In' },
+  { src: '/screens/01_home_explore.png', label: 'Explore' },
   { src: '/screens/03_dashboard.png', label: 'Dashboard' },
-  { src: '/screens/05_reports.png', label: 'Reports' },
-  { src: '/screens/13_referrals.png', label: 'Referrals' },
-  { src: '/screens/09_profile.png', label: 'Profile' },
-  { src: '/screens/10_profile_full.png', label: 'Full Profile' },
+  { src: '/screens/05_reports.png', label: 'AI Reports' },
+  { src: '/screens/07_ai_report_content.png', label: 'AI Report Detail' },
+  { src: '/screens/s03_property.png', label: 'Cash Offer — Property' },
+  { src: '/screens/s04_contact.png', label: 'Cash Offer — Contact' },
+  { src: '/screens/s05_photos.png', label: 'Cash Offer — Photos' },
 ]
 
 function PhoneMockup({ src, label, index }) {
