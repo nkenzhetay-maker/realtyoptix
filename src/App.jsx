@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import LoadingScreen from './components/LoadingScreen'
 import Header3D from './components/Header3D'
 import ScrollSections from './components/ScrollSections'
+import AppGallery from './sections/AppGallery'
 
 const Scene3D = lazy(() => import('./components/Scene3D'))
 
@@ -19,6 +20,7 @@ export default function App() {
         <div className="section-stack">
           <ScrollSections />
         </div>
+        <AppGallery />
       </main>
       <footer className="relative z-10 py-12 px-[8vw] text-xs text-white/30 flex justify-between border-t border-white/5">
         <span>© 2026 Realty Optix. All rights reserved.</span>
