@@ -56,7 +56,7 @@ export default function AIAgents() {
             <span className="gradient-text">for you, 24/7.</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Powered by GPT-4o. Each agent specializes in a different aspect of real estate intelligence.
+            Powered by AI. Each agent specializes in a different aspect of real estate intelligence.
           </p>
         </div>
 

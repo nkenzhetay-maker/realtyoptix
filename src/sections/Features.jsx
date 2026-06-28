@@ -6,7 +6,7 @@ import {
 
 const features = [
   { icon: Map, title: 'Property Search & Map', desc: 'Interactive map with AI-scored properties, filters, and real-time listings across the US.', tag: 'Search' },
-  { icon: Brain, title: 'AI Reports (PDF)', desc: 'Generate comprehensive investment analysis reports powered by GPT-4o. Share as PDF instantly.', tag: 'AI' },
+  { icon: Brain, title: 'AI Reports (PDF)', desc: 'Generate comprehensive investment analysis reports powered by AI. Share as PDF instantly.', tag: 'AI' },
   { icon: Video, title: 'AI Video Tours', desc: 'Cinematic drone-style property walkthroughs generated automatically from property data.', tag: 'Video' },
   { icon: Film, title: 'Property Reels', desc: 'TikTok-style short video feed. Record, upload, and discover properties from top agents.', tag: 'Social' },
   { icon: Users, title: 'CRM & Leads', desc: 'Built-in customer relationship management with lead tracking, follow-ups, and pipeline view.', tag: 'CRM' },

@@ -55,7 +55,7 @@ export default function ScrollSections() {
       {/* 2. AI AGENTS */}
       <section id="agents" data-section="agents" className="scroll-section relative">
         <div className="section-content max-w-[460px] md:max-w-[42%] lg:mt-[4vh]">
-          <p className="eyebrow-ro mb-4">Powered by GPT-4o</p>
+          <p className="eyebrow-ro mb-4">Powered by AI</p>
           <h2 className="headline-md-ro">
             8 AI<br />
             <span className="text-gradient-ro">Agents.</span>
@@ -216,7 +216,7 @@ export default function ScrollSections() {
           <div className="grid grid-cols-2 gap-3 mt-6">
             {[
               { icon: '🎯', title: 'TAM $48B', desc: 'Total addressable market' },
-              { icon: '🤖', title: '8 AI Agents', desc: 'GPT-4o powered analysis' },
+              { icon: '🤖', title: '8 AI Agents', desc: 'AI-powered analysis' },
               { icon: '📈', title: '3-Year Plan', desc: 'Aggressive growth strategy' },
               { icon: '🌎', title: 'Florida First', desc: 'Then nationwide expansion' },
             ].map(item => (
