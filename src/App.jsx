@@ -4,10 +4,18 @@ import Header3D from './components/Header3D'
 import ScrollSections from './components/ScrollSections'
 import AppGallery from './sections/AppGallery'
 import IBuyingPromo from './sections/IBuyingPromo'
+import ReelViewer from './pages/ReelViewer'
 
 const Scene3D = lazy(() => import('./components/Scene3D'))
 
 export default function App() {
+  // Public reel share links: /reel/:id opens the standalone viewer so
+  // non-members can watch shared videos (e.g. from WhatsApp).
+  const reelMatch = window.location.pathname.match(/^\/reel\/([\w-]+)\/?$/)
+  if (reelMatch) {
+    return <ReelViewer reelId={reelMatch[1]} />
+  }
+
   return (
     <>
       <main className="relative">
