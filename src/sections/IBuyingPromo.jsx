@@ -9,20 +9,20 @@ const steps = [
   },
   {
     num: '2',
-    title: 'Contact Info',
-    desc: 'Name, phone, email. AES-256 encrypted.',
-    icon: '📞',
-  },
-  {
-    num: '3',
     title: 'Photos & Location',
     desc: 'Upload photos, share GPS or enter address.',
     icon: '📸',
   },
   {
+    num: '3',
+    title: 'Verify by SMS',
+    desc: 'One-tap phone verification. No account needed.',
+    icon: '📱',
+  },
+  {
     num: '4',
-    title: 'AI Cash Offer',
-    desc: '65% of market value. Cash in 7 days.',
+    title: 'Cash Offer + Visit',
+    desc: 'Up to 85% of market value. Book a free office appointment.',
     icon: '💰',
   },
 ]
@@ -50,14 +50,15 @@ export default function IBuyingPromo() {
     <section ref={sectionRef} className="ibuying-section">
       <div className="ibuying-inner">
         <div className="ibuying-header">
-          <span className="ibuying-badge">NEW FEATURE</span>
+          <span className="ibuying-badge">SELLFAST!</span>
           <h2 className="headline-md-ro ibuying-title">
-            Instant<br />
-            <span className="text-gradient-amber">Cash Offer.</span>
+            Sell Your Home.<br />
+            <span className="text-gradient-amber">Get Cash. Fast.</span>
           </h2>
           <p className="ibuying-subtitle">
-            Homeowners get an AI-powered cash offer in under 5 minutes.
-            No agents, no commissions, no waiting.
+            Homeowners get an instant cash offer in under 5 minutes —
+            up to 85% of market value, based on how fast your home can sell.
+            No commissions, no waiting.
           </p>
         </div>
 
@@ -74,7 +75,7 @@ export default function IBuyingPromo() {
 
         <div className="ibuying-highlights">
           <div className="ibuying-highlight">
-            <span className="ibuying-highlight-value">65%</span>
+            <span className="ibuying-highlight-value">80–85%</span>
             <span className="ibuying-highlight-label">of Market Value</span>
           </div>
           <div className="ibuying-divider" />
@@ -89,14 +90,16 @@ export default function IBuyingPromo() {
           </div>
           <div className="ibuying-divider" />
           <div className="ibuying-highlight">
-            <span className="ibuying-highlight-value">AI</span>
-            <span className="ibuying-highlight-label">Valuation</span>
+            <span className="ibuying-highlight-value">24h</span>
+            <span className="ibuying-highlight-label">Offer Validity</span>
           </div>
         </div>
 
         <div className="ibuying-cta-row">
           <a href="#" className="cta-ro-amber">Get Your Cash Offer →</a>
-          <span className="ibuying-cta-note">No obligation · Takes under 5 minutes</span>
+          <span className="ibuying-cta-note">
+            No obligation · Under 5 minutes · Final price confirmed at a free in-office evaluation
+          </span>
         </div>
       </div>
     </section>
