@@ -195,7 +195,7 @@ export default function ScrollSections() {
             <span className="text-gradient-ro">Pitch Deck.</span>
           </h2>
           <p className="mt-6 text-white/60 leading-relaxed">
-            14-slide deck covering our AI technology, $1.2T market opportunity,
+            20-slide deck covering our opportunity network, $1.2T market,
             revenue model, go-to-market strategy, and growth projections.
           </p>
           <div className="flex flex-col gap-3 mt-8">
@@ -211,7 +211,7 @@ export default function ScrollSections() {
               </svg>
               Download Pitch Deck
             </a>
-            <span className="text-[11px] text-white/30">PPTX · 14 slides · 22 MB</span>
+            <span className="text-[11px] text-white/30">PPTX · 20 slides · 21 MB</span>
           </div>
           <div className="grid grid-cols-2 gap-3 mt-6">
             {[
